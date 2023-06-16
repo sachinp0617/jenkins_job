@@ -1,6 +1,5 @@
 pipline {
-    agent { 
-        label 'salve_1'
+    agent any
     }
     stages (build) [
         steps (
