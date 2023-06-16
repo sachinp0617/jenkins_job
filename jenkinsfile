@@ -1,19 +1,23 @@
 pipline {
-    agent any
+    agent { 
+        label 'salve_1'
+    }
     stages (build) [
         steps (
+            sh 'sleep 5'
 
         )
 
     ]
     stages (test) [
         steps (
+            sh 'sleep 5'
 
         )
     ]
     stages (deploy) [
         steps (
-            
+            sh 'sleep 5'
         )
     ]
 }
