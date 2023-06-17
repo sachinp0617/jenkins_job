@@ -1,22 +1,22 @@
 pipline {
     agent any
+    
+    stages (build) {
+        steps {
+            sh 'sleep 5'
+
+        }
+
     }
-    stages (build) [
-        steps (
+    stages (test) {
+        steps {
             sh 'sleep 5'
 
-        )
-
-    ]
-    stages (test) [
-        steps (
+       }   
+    }
+    stages (deploy) {
+        steps {
             sh 'sleep 5'
-
-        )
-    ]
-    stages (deploy) [
-        steps (
-            sh 'sleep 5'
-        )
-    ]
+        }
+    }
 }
