@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage ('Build-maven') {
             steps {
-                sh '''
+                 sh '''
                     cd ./maven/simple-war/
                     mvn clean package
                     cd ./target/
