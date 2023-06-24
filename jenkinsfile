@@ -21,8 +21,8 @@ pipeline {
         stage ('Deploy-Tomcat') {
             steps {
                 script {
-                    deploy adapters: [tomcat9(credentialsId: 'tom', path: '', url: 'http://3.7.68.88:8080/')], 
-                    contextPath: '/itdefined-war-1.0.0', war: 'maven/simple-war/target/itdefined-war-1.0.0.war '
+                    deploy adapters: [tomcat9(credentialsId: 'tom', path: '', url: 'http://15.206.89.196:8080/')],
+                     contextPath: 'itdefined-war-1.0.0', war: '/maven/simple-war/target/itdefined-war-1.0.0.war'
                 }
 
  
