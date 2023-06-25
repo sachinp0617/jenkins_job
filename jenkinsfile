@@ -6,12 +6,12 @@ pipeline {
     stages {
         stage ('Build-maven') {
             steps {
-                sh ''' 
-                          cd ~/Devops-ITD-May-2023/maven/simple-war
-                          mvn clean package
-                          cd ./target/
-                          ls
-                    '''
+                 sh '''
+                    cd ./maven/simple-war/
+                    mvn clean package
+                    cd ./target/
+                    ls
+                '''
 
             }
         }
