@@ -10,7 +10,9 @@ pipeline {
             steps {
                 sh '''
                     cd ./maven/simple-war/
-                        ls
+                    mvn clean package
+                        cd ./target
+                      ls
                     
                 '''
             }
