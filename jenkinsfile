@@ -9,8 +9,9 @@ pipeline {
         stage ('Build-Maven') {
             steps {
                 sh '''
+                    cd ./maven
+                        ls
                     
-                    ls
                 '''
             }
         }
