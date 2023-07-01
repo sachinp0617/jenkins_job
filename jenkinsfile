@@ -14,14 +14,14 @@ pipeline {
         stage ('Test') {
             steps {
                 script {
-                    try{
-                        echo "running test cases"
-                        sh 'sleep 5'
-                        
-                    }catch (Exception e) {
-                        echo "test case failed"
-                        testpassed = false
-                    }
+                      try{
+                             echo "Running test cases"
+                             sh 'sleep 2'
+                             sh 'exit 1'
+                      }catch (Exception -e) {
+                             echo "test case failed"
+                            testpassed = false
+                      }
                     }
                 }
             }
