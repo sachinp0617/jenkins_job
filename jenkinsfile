@@ -10,7 +10,7 @@ pipline {
                 sh 'sleep 5'
                 }
             }
-        }
+        
         stage ('Test') {
             steps {
                 script {
@@ -25,7 +25,7 @@ pipline {
                     }
                 }
             }
-        }
+        
         stage ('deploy') {
             steps {
                 script {
@@ -45,7 +45,7 @@ pipline {
                     if(!testpassed){
                         echo "sending mail on test fail"
                     }else {
-                        echo "sending mail on deployment succes"
+        g                echo "sending mail on deployment succes"
                     }
                 }
             }
