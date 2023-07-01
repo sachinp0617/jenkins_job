@@ -32,7 +32,7 @@ pipeline {
                     if(testpassed == true){
                         echo "deploying to test environment"
                         sh 'sleep 5'
-                        sh 'exit 1'
+                        
                     } else {
                         echo "skipping deployment"
                     }
