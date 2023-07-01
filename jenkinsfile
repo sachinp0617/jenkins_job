@@ -1,6 +1,6 @@
 boolean testpassed = true
 
-pipline {
+pipeline {
     agent any
 
     stages {
