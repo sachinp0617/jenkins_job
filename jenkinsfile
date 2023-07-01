@@ -15,10 +15,10 @@ pipeline {
             steps {
                 script {
                       try{
-                             echo "Running test cases"
-                             sh 'sleep 2'
-                             sh 'exit 1'
-                      }catch (Exception -e){
+						echo "Running test cases .........."
+						sh 'sleep 5'
+						sh 'exit 1'
+					}catch (Exception e){
                              echo "test case failed"
                             testpassed = false
                       }
