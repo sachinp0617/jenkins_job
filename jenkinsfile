@@ -18,7 +18,7 @@ pipline {
                         echo "running test cases"
                         sh 'sleep 5'
                         sh 'exit 1'
-                    }catch (exceptio e) {
+                    }catch(exceptio e){
                         echo "test case failed"
                         testpassed = false
                     }
@@ -45,7 +45,7 @@ pipline {
                     if(!testpassed){
                         echo "sending mail on test fail"
                     }else {
-        g                echo "sending mail on deployment succes"
+                       echo "sending mail on deployment succes"
                     }
                 }
             }
