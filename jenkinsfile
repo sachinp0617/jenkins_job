@@ -18,7 +18,7 @@ pipline {
                         echo "running test cases"
                         sh 'sleep 5'
                         sh 'exit 1'
-                    }catch(exceptio e){
+                    }catch (Exception e)
                         echo "test case failed"
                         testpassed = false
                     }
