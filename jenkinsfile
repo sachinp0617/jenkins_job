@@ -1,35 +1,58 @@
 pipeline {
+    
     agent any
-    parameters {
-               choice choices: ['Test', 'Qa', 'Proudction'], description: 'select one of the choices to deploy', name: 'Deploy'
-               }
 
-
-    stages {
-        stage ('Buid') {
-            steps {
-
-                script {
-                     def Environment = "${params.Deploy}"
-                     if(Environment == 'Test') {
-                         echo "deploy to test"
-                     }
-                    
-                     else if(Environment == 'Qa') {
-                        echo "deploy to Qa"
-                     }
-
-                     else 
-                     echo "deploy to production" 
-
-                }
-               
-            }
-        }
-
-
-
+    triggers {
+        pollSCM('H * * * *')
     }
 
-}
+    stages {
 
+        stage ('Build') {
+                steps{
+                       sh 'pwd'
+                       sh 'exit 1'
+                   }
+        }
+
+          stage ('Test') {
+                 steps {
+                          sh 'pwd'
+                          echo "this is test"
+                     }
+        }
+             stage ('Test') {
+                steps {
+                        sh 'pwd'
+                         echo "this is test"
+                    }
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
