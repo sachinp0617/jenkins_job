@@ -1,31 +1,34 @@
-
-
 pipeline {
     agent any
     parameters {
-        string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
+               choice choices: ['Test', 'Qa', 'Proudction'], description: 'select one of the choices to deploy', name: 'Deploy'
+               }
 
-        text(name: 'BIOGRAPHY', defaultValue: '', description: 'Enter some information about the person')
 
-        booleanParam(name: 'TOGGLE', defaultValue: true, description: 'Toggle this value')
-
-        choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
-
-        password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
-    }
     stages {
-        stage('Example') {
+        stage ('Buid') {
             steps {
-                echo "Hello ${params.PERSON}"
+                scirpt{
+                     def Environment = ${params.Deploy}
+                     if(Environment == 'Test') {
+                         echo "deploy to test"
+                     }
+                    
+                     else if(Environment == 'Qa') {
+                        echo "deploy to Qa"
+                     }
 
-                echo "Biography: ${params.BIOGRAPHY}"
+                     else 
+                     echo "deploy to production" 
 
-                echo "Toggle: ${params.TOGGLE}"
-
-                echo "Choice: ${params.CHOICE}"
-
-                echo "Password: ${params.PASSWORD}"
+                }
+               
             }
         }
+
+
+
     }
+
 }
+
