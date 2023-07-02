@@ -1,15 +1,12 @@
 pipeline {
-    
     agent any
-
     triggers {
         pollSCM('H * * * *')
     }
 
-    stages {
-
-        stage ('Build') {
-                steps{
+         stages {
+                  stage ('Build') {
+                steps {
                        sh 'pwd'
                        sh 'exit 1'
                    }
@@ -21,10 +18,10 @@ pipeline {
                           echo "this is test"
                      }
         }
-             stage ('Test') {
+             stage ('Deploy') {
                 steps {
                         sh 'pwd'
-                         echo "this is test"
+                         echo "this is Deploy"
                     }
         }
     }
