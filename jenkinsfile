@@ -8,9 +8,11 @@ pipeline {
                   stage ('Build') {
                 steps {
                          catchError(buildResult: 'success', stageResult: 'failure')
+                         {
                        sh 'pwd'
                        sh 'exit 1'
                    }
+                }   
         }
 
           stage ('Test') {
