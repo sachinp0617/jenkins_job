@@ -1,55 +1,16 @@
-boolean testpassed = true
+
 
 pipeline {
     agent any
-
+parameters {
+  string defaultValue: 'Mr Jenkins ', description: 'who should i say hello to ?', name: 'Person', trim: true
+}
     stages {
-        stage ('Build') {
+        stage('Build') {
             steps {
-                echo "build stage"
-                sh 'sleep 5'
-                }
+                echo "Hello ${params.Person}"
             }
-        
-        stage ('Test') {
-            steps {
-                script {
-                      try{
-						echo "Running test cases .........."
-						sh 'sleep 5'
-						sh 'exit 1'
-					}catch (Exception e){
-                             echo "test case failed"
-                            testpassed = false
-                      }
-                    }
-                }
-            }
-        
-        stage ('deploy') {
-            steps {
-                script {
-                    if(testpassed == true){
-                        echo "deploying to test environment"
-                        sh 'sleep 5'
-                        
-                    } else {
-                        echo "skipping deployment"
-                    }
-                }
-            }
-        }
-        stage ('mail') {
-            steps {
-                script {
-                    if(!testpassed){
-                        echo "sending mail on test fail"
-                    }else {
-                       echo "sending mail on deployment succes"
-                    }
-                }
-            }
-
         }
     }
-}
+}       
+        
