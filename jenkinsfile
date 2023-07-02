@@ -9,7 +9,7 @@ pipeline {
         stage ('Buid') {
             steps {
 
-                scirpt {
+                script {
                      def Environment = "${params.Deploy}"
                      if(Environment == 'Test') {
                          echo "deploy to test"
